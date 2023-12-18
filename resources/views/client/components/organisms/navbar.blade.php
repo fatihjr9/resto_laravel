@@ -7,7 +7,7 @@
     border-bottom: 1px solid #f8f8f9;
   }
 </style>
-<header class="header" id="header">
+<header class="header bg-white" id="header">
   <div class="d-flex flex-row align-items-center justify-content-between container py-3">
     <a href="/" id="logo">
       <img style="width: 2rem;" src="{{ asset('shop/'.$path) }}" alt="">

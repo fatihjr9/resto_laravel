@@ -23,7 +23,7 @@
     </style>
 @endpush
 
-<div class="container py-5">
+<div>
     {{ $slot }}
     <div class="row g-3">
         @foreach ($dataProduct as $item)

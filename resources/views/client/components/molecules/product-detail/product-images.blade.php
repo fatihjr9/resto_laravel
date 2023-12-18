@@ -6,7 +6,7 @@
 
 <div>
     <div class="product__carousel">
-        <div class="swiper-container gallery-top">
+        <div class="swiper-container gallery-top w-100">
           <div class="swiper-wrapper">
             @foreach($dataProductimages as $row)
               <div class="swiper-slide easyzoom easyzoom--overlay">
@@ -21,7 +21,7 @@
           <div class="swiper-button-prev swiper-button-white"></div>
         </div>
 
-        <div class="swiper-container gallery-thumbs">
+        {{-- <div class="swiper-container gallery-thumbs">
           <div class="swiper-wrapper">
             @foreach($dataProductimages as $row)
               <div class="swiper-slide">
@@ -29,7 +29,7 @@
               </div>
             @endforeach
           </div>
-        </div>
+        </div> --}}
       </div>
 </div>
 

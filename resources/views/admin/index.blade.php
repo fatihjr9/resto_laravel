@@ -11,8 +11,8 @@
                       </div>
                   </div>
                   <div class="col-md-8">
-                      <h6 class="text-muted font-semibold">Sales</h6>
-                      <h6 class="font-extrabold mb-0">$
+                      <h6 class="text-muted font-semibold">Penjualan</h6>
+                      <h6 class="font-extrabold mb-0">Rp
                         {{ $sales }}
                       </h6>
                   </div>
@@ -30,7 +30,7 @@
                       </div>
                   </div>
                   <div class="col-md-8">
-                      <h6 class="text-muted font-semibold">Completed</h6>
+                      <h6 class="text-muted font-semibold">Order Selesai</h6>
                       <h6 class="font-extrabold mb-0">{{ $order }}</h6>
                   </div>
               </div>
@@ -47,7 +47,7 @@
                       </div>
                   </div>
                   <div class="col-md-8">
-                      <h6 class="text-muted font-semibold">Products</h6>
+                      <h6 class="text-muted font-semibold">Menu</h6>
                       <h6 class="font-extrabold mb-0">{{ $product }}</h6>
                   </div>
               </div>
@@ -65,7 +65,7 @@
                       </div>
                   </div>
                   <div class="col-md-8">
-                      <h6 class="text-muted font-semibold">Category</h6>
+                      <h6 class="text-muted font-semibold">Kategori</h6>
                       <h6 class="font-extrabold mb-0">{{ $category }}</h6>
                   </div>
               </div>
@@ -81,8 +81,8 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Order Code</th>
-                    <th>Name</th>
+                    <th>Kode order</th>
+                    <th>Nama</th>
                     <th>Total</th>
                     <th>Status</th>
                     <th width="20%">Action</th>
@@ -94,20 +94,16 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $row->order_code }}</td>
                     <td>{{ $row->name }}</td>
-                    <td>${{ $row->total }}</td>
+                    <td>Rp {{ $row->total }}</td>
                     <td>
                       @if($row->status == 0)
-                        <span class="badge bg-warning">Unprocessed</span>
+                        <span class="badge bg-warning">Pesanan Dikonfirmasi</span>
                       @elseif($row->status == 1)
-                        <span class="badge bg-info">Confirmed</span>
+                        <span class="badge bg-info">Pesanan Diproses</span>
                       @elseif($row->status == 2)
-                        <span class="badge bg-primary">Processed</span>
+                        <span class="badge bg-primary">Pesanan Selesai</span>
                       @elseif($row->status == 3)
-                        <span class="badge bg-danger">Pending</span>
-                      @elseif($row->status == 4)
-                        <span class="badge bg-secondary">Shipping</span>
-                      @elseif($row->status == 5)
-                        <span class="badge bg-success">Completed</span>
+                        <span class="badge bg-danger">Pesanan Diantar</span>
                       @endif
                     </td>
                     <td>

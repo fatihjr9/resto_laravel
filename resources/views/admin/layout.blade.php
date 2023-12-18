@@ -71,7 +71,7 @@
                         
                         <li class="sidebar-item {{ request()->routeIs('payment') ? 'active' : '' }}">
                             <a href="{{route('payment')}}" class='sidebar-link'>
-                                <i class="bi bi-bag"></i>
+                                <i class="bi bi-credit-card-2-front"></i>
                                 <span>Payment</span>
                             </a>
                         </li>
