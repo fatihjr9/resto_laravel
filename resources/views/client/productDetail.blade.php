@@ -4,7 +4,7 @@
       <x-organisms.product-detail :dataProduct="$product" />
     </div>
     <x-organisms.products :dataProduct="$recomendationProducts">
-    <h1 class="pb-3 mt-2">Recent Popular Product</h1>
+      <h1 class="pb-3 mt-2 fs-5">Menu Lainnya</h1>
   </x-organisms.products>
   <x-organisms.footer :shop="$shop"/>
 </x-template.layout>

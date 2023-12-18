@@ -4,6 +4,30 @@
     .autosize:focus{
       box-shadow:none !important;
     }
+    
+    #plus{
+      border: 1px solid #f4f4f4;
+      color: orange;
+    }
+    #moins{
+      border: 1px solid #f4f4f4;
+      color: orange;
+    }
+    #count{
+      border: 1px solid #f2f2f2;
+      background: #fafafa;
+      color: orange;
+    }
+    #plus:hover{
+      background-color: orange;
+      border: none;
+      color: white;
+    }
+    #moins:hover{
+      background-color: orange;
+      border: none;
+      color: white;
+    }
 
     @media screen and (max-width: 767px){
       #input_div{
@@ -20,20 +44,23 @@
     #count{
       width:100px;
     }
+    .btn-orange {
+      background-color: orange;
+    }
   </style>
 @endpush
 
-<div class="card">
+<div class="w-100 border p-3 bg-white shadow-sm rounded-2">
     <h3 class="mt-md-0 mt-4">{!! str_replace('-', ' ', ucwords($dataProductContent->title)) !!}</h3>
-    <h5>Rp {{$dataProductContent->price}}</h5>
-    <p><b>Stock : {{$dataProductContent->stock}}</b></p>
+    <p class="text-secondary">Rp {{$dataProductContent->price}}</p>
+    {{-- <p><b>Stock : {{$dataProductContent->stock}}</b></p> --}}
     @if($dataProductContent->stock !== 0)
     <div id="input_div">
         <input type="button" value="-" id="moins" onclick="minus()" class="btn btn-outline-primary">
         <input type="text" value="1" id="count" class="btn btn-outline-primary font-secondary" disabled>
         <input type="button" value="+" id="plus" data-stok="{{$dataProductContent->stock}}" onclick="plus()" class="btn btn-outline-primary">
     </div>
-    <button class="btn btn-primary btn-small font-secondary mt-4 add-to-cart" data-id-product="{{$dataProductContent->id}}" data-quantity="1">Add to cart</button>
+    <button class="btn btn-orange btn-small font-secondary mt-4 add-to-cart text-white w-100" data-id-product="{{$dataProductContent->id}}" data-quantity="1">Tambahkan</button>
     @endif
 </div>
 @push('js')

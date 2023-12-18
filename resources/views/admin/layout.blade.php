@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $title }}</title>
+    <title>Admin Dashboard</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -66,6 +66,13 @@
                             <a href="{{route('orders')}}" class='sidebar-link'>
                                 <i class="bi bi-bag"></i>
                                 <span>Orders</span>
+                            </a>
+                        </li>
+                        
+                        <li class="sidebar-item {{ request()->routeIs('payment') ? 'active' : '' }}">
+                            <a href="{{route('payment')}}" class='sidebar-link'>
+                                <i class="bi bi-bag"></i>
+                                <span>Payment</span>
                             </a>
                         </li>
 
@@ -145,7 +152,6 @@
 
             <div class=" card">
                 <div class="card-body d-flex justify-content-between align-items-center">
-                <h3>{{ $title }}</h3>
                 @yield('button')
                 </div>
             </div>

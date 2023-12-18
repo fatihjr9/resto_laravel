@@ -8,9 +8,11 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Shop;
 use App\Models\Order;
+use Illuminate\Support\Str;
+
 use App\Models\OrderDetail;
+use App\Models\Payment;
 use Validator;
-use Str;
 
 class ClientController extends Controller
 {
@@ -137,11 +139,10 @@ class ClientController extends Controller
                     'total' => $total,
                     'status' => 0
                 ]);
-
                 OrderDetail::insert($data);
-
+                
                 session()->forget('cart');
-
+                // return view('client.checkout', compact('snapToken'));
                 return redirect()->route('clientOrderCode', $order_code);
             }
 
@@ -149,11 +150,23 @@ class ClientController extends Controller
     }
 
     public function successOrder($order_code){
-        $data = [
-            'shop' => Shop::first(),
-            'order_code' => $order_code,
-            'title' => 'Checkout'
-        ];
+        $payment = Payment::first();
+        $order = Order::where('order_code', $order_code)->first();
+        if($order){
+            $orderDetails = OrderDetail::where('order_code', $order_code)->get();
+    
+            $total = $orderDetails->sum(function ($detail) {
+                return $detail->price * $detail->quantity;
+            });
+    
+            $data = [
+                'shop' => Shop::first(),
+                'order_code' => $order_code,
+                'title' => 'Checkout',
+                'payment' => $payment,
+                'total' => $total,
+            ];
+        }
 
         return view('client.success-order', $data);
     }

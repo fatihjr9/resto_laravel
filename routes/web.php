@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\ShopController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Client\ClientController;
 use App\Http\Controllers\Client\CartController;
 
@@ -90,5 +91,13 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin/order/{order_code}', 'detail')->name('orderDetail');
         Route::post('/admin/order/update-status/{order_code}', 'updateStatus')->name('orderUpdateStatus');
         Route::get('/admin/order/delete/{order_code}', 'delete')->name('orderDelete');
+    });
+
+    // Payments
+    Route::controller(PaymentController::class)->group(function(){
+        Route::get('/admin/payment-url', 'index')->name('payment');
+        Route::get('/admin/payment-url/create', 'create')->name('paymentCreate');
+        Route::post('/admin/payment-url/create', 'store')->name('paymentCreate');
+        Route::delete('/admin/payment/destroy/{id}', 'destroy')->name('paymentDestroy');
     });
 });

@@ -22,20 +22,16 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $row->order_code }}</td>
                     <td>{{ $row->name }}</td>
-                    <td>${{ $row->total }}</td>
+                    <td>Rp {{ $row->total }}</td>
                     <td>
                       @if($row->status == 0)
-                        <span class="badge bg-warning">Unprocessed</span>
+                        <span class="badge bg-warning" >Pesanan Dikonfirmasi</span>
                       @elseif($row->status == 1)
-                        <span class="badge bg-info">Confirmed</span>
+                        <span class="badge bg-info">Pesanan Di proses</span>
                       @elseif($row->status == 2)
-                        <span class="badge bg-primary">Processed</span>
+                        <span class="badge bg-primary">Pesanan Selesai</span>
                       @elseif($row->status == 3)
-                        <span class="badge bg-danger">Pending</span>
-                      @elseif($row->status == 4)
-                        <span class="badge bg-secondary">Shipping</span>
-                      @elseif($row->status == 5)
-                        <span class="badge bg-success">Completed</span>
+                        <span class="badge bg-danger">Pesanan Diantar</span>
                       @endif
                     </td>
                     <td>

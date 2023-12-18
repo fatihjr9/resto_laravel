@@ -1,12 +1,12 @@
-<table id="cart" class="table table-hover table-striped">
+<table id="cart" class="table table-hover table-striped w-100">
     <thead>
         <tr>
-            <th style="width:50%">Nama Pesanan</th>
-            <th style="width:10%">Harga</th>
-            <th style="width:25">Jumlah</th>
-            <th style="width:15%">Subtotal</th>
+            <th >Nama Pesanan</th>
+            <th>Harga</th>
+            <th>Jumlah</th>
+            <th>Subtotal</th>
             @if(!request()->routeIs('clientCheckout'))
-                <th style="width:5%">Action</th>
+                <th>Action</th>
             @endif
         </tr>
     </thead>

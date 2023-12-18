@@ -18,17 +18,13 @@
               <td>
                 <button type="button" data-bs-toggle="modal" data-bs-target="#modalUpdateStatus" style="background-color:transparent;border:none;">
                   @if($order->status == 0)
-                    <span class="badge bg-warning" >Unprocessed</span>
+                    <span class="badge bg-warning" >Pesanan Dikonfirmasi</span>
                   @elseif($order->status == 1)
-                    <span class="badge bg-info">Confirmed</span>
+                    <span class="badge bg-info">Pesanan Di proses</span>
                   @elseif($order->status == 2)
-                    <span class="badge bg-primary">Processed</span>
+                    <span class="badge bg-primary">Pesanan Selesai</span>
                   @elseif($order->status == 3)
-                    <span class="badge bg-danger">Pending</span>
-                  @elseif($order->status == 4)
-                    <span class="badge bg-secondary">Shipping</span>
-                  @elseif($order->status == 5)
-                    <span class="badge bg-success">Completed</span>
+                    <span class="badge bg-danger">Pesanan Diantar</span>
                   @endif
                 </button>
               </td>
@@ -110,12 +106,10 @@
             @csrf
             <div class="input-group">
               <select class="form-select" id="inputGroupSelect01" name="status">
-                <option value="0" {{ $order->status == 0 ? 'selected' : '' }}>Unprocessed</option>
-                <option value="1" {{ $order->status == 1 ? 'selected' : '' }}>Confirmed</option>
-                <option value="2" {{ $order->status == 2 ? 'selected' : '' }}>Processed</option>
-                <option value="3" {{ $order->status == 3 ? 'selected' : '' }}>Pending</option>
-                <option value="4" {{ $order->status == 4 ? 'selected' : '' }}>Shipping</option>
-                <option value="5" {{ $order->status == 5 ? 'selected' : '' }}>Completed</option>
+                <option value="0" {{ $order->status == 0 ? 'selected' : '' }}>Pesanan Dikonfirmasi</option>
+                <option value="1" {{ $order->status == 1 ? 'selected' : '' }}>Pesanan Di proses</option>
+                <option value="2" {{ $order->status == 2 ? 'selected' : '' }}>Pesanan Selesai</option>
+                <option value="3" {{ $order->status == 3 ? 'selected' : '' }}>Pesanan Diantar</option>
               </select>
               <button type="submit" class="input-group-text btn btn-primary" for="inputGroupSelect01">Save</button>
             </div>
