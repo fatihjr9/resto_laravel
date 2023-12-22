@@ -32,48 +32,48 @@ class ClientController extends Controller
         return view('client.index', $data);
     }
 
-    public function searchProduct(Request $request){
-        $validator = Validator::make($request->all(), [
-            'product' => 'required'
-        ]);
+    // public function searchProduct(Request $request){
+    //     $validator = Validator::make($request->all(), [
+    //         'product' => 'required'
+    //     ]);
 
-        if($validator->fails()){
-            return redirect()->route('clientHome')->withErrors($validator)->withInput();
-        }else{
+    //     if($validator->fails()){
+    //         return redirect()->route('clientHome')->withErrors($validator)->withInput();
+    //     }else{
             
-            $search = str_replace(' ', '-', strtolower($request->product));
+    //         $search = str_replace(' ', '-', strtolower($request->product));
 
-            $data = [
-                'title' => 'Result',
-                'shop' => Shop::first(),
-                'product' => Product::where('title', 'LIKE', '%'.$search.'%')->orderBy('id', 'DESC')->paginate(20),
-                'search' => $request->product
-            ];
+    //         $data = [
+    //             'title' => 'Result',
+    //             'shop' => Shop::first(),
+    //             'product' => Product::where('title', 'LIKE', '%'.$search.'%')->orderBy('id', 'DESC')->paginate(20),
+    //             'search' => $request->product
+    //         ];
 
-            return view('client.productSearch', $data);
+    //         return view('client.productSearch', $data);
 
-        }
-    }
+    //     }
+    // }
 
-    public function category(){
-        $data = [
-            'shop' => Shop::first(),
-            'category' => Category::orderBy('id', 'DESC')->paginate(12),
-            'title' => 'Products'
-        ];
+    // public function category(){
+    //     $data = [
+    //         'shop' => Shop::first(),
+    //         'category' => Category::orderBy('id', 'DESC')->paginate(12),
+    //         'title' => 'Products'
+    //     ];
 
-        return view('client.category', $data);
-    }
+    //     return view('client.category', $data);
+    // }
 
-    public function categoryProducts($category){
-        $data = [
-            'shop' => Shop::first(),
-            'category' => Category::where('name', $category)->first(),
-            'title' => 'Category - '.str_replace('-', ' ', ucwords($category))
-        ];
+    // public function categoryProducts($category){
+    //     $data = [
+    //         'shop' => Shop::first(),
+    //         'category' => Category::where('name', $category)->first(),
+    //         'title' => 'Category - '.str_replace('-', ' ', ucwords($category))
+    //     ];
 
-        return view('client.categoryProducts', $data);
-    }
+    //     return view('client.categoryProducts', $data);
+    // }
 
     public function productDetail($product){
 

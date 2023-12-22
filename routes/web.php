@@ -25,7 +25,7 @@ use App\Http\Controllers\Client\CartController;
 Route::controller(ClientController::class)->group(function(){
     Route::get('/', 'index')->name('clientHome');
     // Route::get('/products', 'products')->name('clientProducts');
-    Route::get('/products-search', 'searchProduct')->name('clientProductSearch');
+    // Route::get('/products-search', 'searchProduct')->name('clientProductSearch');
     Route::get('/category', 'category')->name('clientCategory');
     Route::get('/category/{category}', 'categoryProducts')->name('clientCategoryProducts');
     Route::get('/product/{product}', 'productDetail')->name('clientProductDetail');
@@ -39,7 +39,7 @@ Route::controller(ClientController::class)->group(function(){
     Route::get('/success/{order_code}', 'successOrder')->name('clientOrderCode');
     Route::get('/check-order', 'checkOrder')->name('clientCheckOrder');
     Route::post('/check-order-status', 'checkOrderStatus')->name('clientCheckOrderStatus');
-    Route::get('/about', 'about')->name('clientAbout');
+    // Route::get('/about', 'about')->name('clientAbout');
 });
 
 Route::controller(CartController::class)->group(function(){
